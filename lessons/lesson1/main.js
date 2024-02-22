@@ -143,12 +143,22 @@ num = (+'p123');                 // Nan
 
 console.log(num);
 
+
 // Функція parseInt
 num2 = '12345qwerqwerqwer';
 console.log(parseInt(num2));     // 12345 - прибирає зайве
 
 num3 = 'qwe12345';
 console.log(parseInt(num3));     // NaN
+
+let num1 = 42.23423423423;
+console.log(parseInt(num1));    //42 - прибирає дроби!!!
+                                // Видає помилку, бо parseInt перетворює string в number;
+console.log(Math.round(num1));  // 42 - округлило
+
+let num10 = '52.235235';
+console.log(typeof Number(num10));  // number  - перетворило стрінгу в number
+
 
 
 // Function alert, prompt, confirm
@@ -158,6 +168,7 @@ console.log(parseInt(num3));     // NaN
 // console.log(5+confirm());   // 6 - якщо confirm - ok(true)
 // let promptNumber = +prompt('Введи число від 1-100');
 // console.log(promptNumber);  // виведе число, наприклад, 23!
+// let prompt12 = +prompt('Введіть вік від 18-60', '18'); // Дуфолтне значення
 
 
 // Конвертація в Boolean - перед даними - !!

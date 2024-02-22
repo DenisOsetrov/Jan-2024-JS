@@ -1,4 +1,8 @@
 // 1 task
+// Створити змінні.
+// Присвоїти кожному з них значення: 'hello','owu','com', 'ua', 1, 10, -999, 123, 3.14, 2.7, 16, true, false.
+// Вивести кожну змінну за допомогою: console.log
+
 let hi = 'hello';
 console.log(hi);
 
@@ -40,6 +44,9 @@ console.log(boolean2);
 
 
 // 2 task
+// Створити 3 змінних firstName, middleName, lastName, наповнити їх своїм ПІБ.
+// З'єднати їх в одну змінну person (Не об'єкт, просто за допомоги конкатенації)
+
 let firstName = 'Denis';
 let middleName = 'Osetrov';
 let lastName = 'Volodymyrovych';
@@ -60,7 +67,9 @@ person = firstName + middleName + lastName;   // без пробілів
 console.log(person);
 
 
-//3 task
+// 3 task
+// За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.
+// let a = 100; let b = '100'; let c = true;
 
 let a = 100;
 let b = '100';
@@ -72,13 +81,21 @@ console.log(typeof c, c);
 
 
 // 4 task (addition)
+// - За допомогою 3х різних prompt() отримати 3 слова які являються вашими Імям, По-Батькові та роками.
+// та вивести в консоль
 
 alert('Приві! Я - Alert! Натисни "Ок!", якщо готовий зустрічати confirm');
 confirm('Залишився ще один крок! Готовий?');
 let promptMiddleName = prompt('Введіть своє прізвище!');
 let promptName = prompt('Введіть своє ім\'я!');
 let promptLastName = prompt('Введіть своє по-батькові!');
-console.log(promptName, promptMiddleName, promptLastName+'- талановитий developer!');
+let promptAge = +prompt('Скільки Вам повних років?', '18');
+
+console.log(promptName, promptMiddleName, promptLastName+'- талановитий developer, якому в цьому році виповнилося -', `${promptAge}`, 'років!');
+
+console.log(promptName+spase+promptMiddleName+spase+promptLastName+spase+'- талановитий developer, якому в цьому році виповнилося - '+promptAge+spase+'років!');
+
+console.log(`${promptName} ${promptMiddleName} ${promptLastName} - талановитий developer, якому в цьому році виповнилося - ${promptAge} років!`);
 
 
 
