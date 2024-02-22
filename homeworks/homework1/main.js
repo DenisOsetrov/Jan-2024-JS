@@ -62,6 +62,24 @@ console.log(person);
 
 //3 task
 
+let a = 100;
+let b = '100';
+let c = true;
+
+console.log(typeof a, a);
+console.log(typeof b, b);
+console.log(typeof c, c);
+
+
+// 4 task (addition)
+
+alert('Приві! Я - Alert! Натисни "Ок!", якщо готовий зустрічати confirm');
+confirm('Залишився ще один крок! Готовий?');
+let promptMiddleName = prompt('Введіть своє прізвище!');
+let promptName = prompt('Введіть своє ім\'я!');
+let promptLastName = prompt('Введіть своє по-батькові!');
+console.log(promptName, promptMiddleName, promptLastName+'- талановитий developer!');
+
 
 
 
