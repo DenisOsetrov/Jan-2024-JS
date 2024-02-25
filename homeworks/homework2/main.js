@@ -193,7 +193,7 @@ if (time >= 0 && time <= 15) {
     console.log('II чверть')
 } else if (time >= 31 && time <= 45) {
     console.log('III чверть')
-} else if (time>=46 && time <60) {
+} else if (time >= 46 && time < 60) {
     console.log('VI чверть')
 } else {
     console.log('This time is not valid')
@@ -204,14 +204,145 @@ if (time >= 0 && time <= 15) {
 // - У змінній day дано якесь число від 1 до 31.
 // Потрібно визначити, у яку половину(декаду) місяця потрапляє це число
 // (у першу, другу чи третю).
-console.log('Task 2.3. Day!')
+console.log('Task 2.3. Decade of month!')
 
+let day = 31;
+if (day >= 0 && day <= 10) {
+    console.log('First decade')
+} else if (day >= 11 && day <= 20) {
+    console.log('Second decade')
+} else if (day >= 21 && day < 32) {
+    console.log('Third decade')
+} else {
+    console.log('This day is not valid!')
+}
 
+// Task 2.4.
+// - Скласти розклад на тиждень за домопоги switch.
+// Користувач вводить порядковий номер дня тижня і на екрані відображається інфа,
+// що заплановано на цей день (можна замість плану на день, назву дня англійською).
+console.log('Task 2.4. Switch. Plan for the week!');
 
+let numWeek = 12;
 
+switch (numWeek) {
+    case 1:
+        console.log('Розпочнемо тиждень з ентузіазму, як коли кіт просинається в 5 ранку, згадуючи, що йому до корму далеко.');
+        break;
+    case 2:
+        console.log('Сьогодні, будемо більш активні, ніж веселий щеня, яке намагається догнати свій власний хвіст.');
+        break;
+    case 3:
+        console.log('Це середа, час почати розгортати свої крила, як півень на ранковій прогулянці, і розлетітися у великі висоти.');
+        break;
+    case 4:
+        console.log('Нехай цей четвер буде таким же цікавим, як пригода кота, який намагається зрозуміти, що трапилося з його хвостом.');
+        break;
+    case 5:
+        console.log('Вітаю, п\'ятниця, мій старий друг! Сьогодні ми будемо радіти, як собача хвіст на прогулянці, і стрибати від радості, як кенгуру на скакалці.');
+        break;
+    case 6:
+        console.log('Субота - це час для веселощів і пригод, як для дітей на дитячому майданчику, тому давайте поринемо у світ веселощів і розваг!');
+        break;
+    case 7:
+        console.log('Неділя, день для відпочинку та релаксу, як прогулянка слоненяти по пляжу - плавно, спокійно і з великим задоволенням.');
+        break;
+    default:
+        console.log('Це точно не твій день!)))')
+}
 
-
-// - Скласти розклад на тиждень за домопоги switch. Користувач вводить порядковий номер дня тижня і на екрані відображається інфа що заплановано на цей день (можна замість плану на день, назву дня англійською).
+// Task 2.5.
 // - Користувач вводить або має два числа.
 // Потрібно знайти та вивести максимальне число з тих двох .
 // Також потрібно врахувати коли введені рівні числа.
+console.log('Task 2.5. User has two numbers!')
+
+let firstNum = 14;
+let secondNum = 15;
+
+if (firstNum> secondNum) {
+    console.log(firstNum, 'більше за друге число!')
+} else if (secondNum>firstNum) {
+    console.log(`${secondNum} більше за перше число`);
+} else if (firstNum === secondNum){
+    console.log('Так вони ж однакові!')
+}
+
+
+// Task 3.
+// - є змінна f, яка може прийняти будь-яке значення
+// (стрінг, число, undefined, null  і тд включно).
+// Напишіть код який, за допомоги  оператора || буде присвоювати
+// змінній f значення "default",  якщо значення змінної f являється falsy
+// (хибноподібні, тобто приводиться до false)
+console.log('Task 3.');
+
+let f = '';   // undefined, null, false, 0.
+f = f || 'default';
+console.log(f);
+
+
+// Task 4.
+// - з файлу arrays.js (лежить в папці 2023 plan ) взяти масив coursesAndDurationArray.
+// За допомоги іф перевірити кожен його елемент на тривалість навчання.
+// У випадку якщо тривалість довша за 5 місяців вивести в консоль "Супер".
+console.log('Task 4. [coursesAndDurationArray] > 5 month "Super!"');
+
+let coursesAndDurationArray = [
+    {title: 'JavaScript Complex', monthDuration: 5},
+    {title: 'Java Complex', monthDuration: 6},
+    {title: 'Python Complex', monthDuration: 6},
+    {title: 'QA Complex', monthDuration: 4},
+    {title: 'FullStack', monthDuration: 7},
+    {title: 'Frontend', monthDuration: 4}
+];
+if (coursesAndDurationArray[0].monthDuration > 5) {
+    console.log(coursesAndDurationArray[0].title, 'Super');
+
+} if (coursesAndDurationArray[1].monthDuration > 5) {
+    console.log(coursesAndDurationArray[1].title, 'Super');
+
+} if (coursesAndDurationArray[2].monthDuration > 5) {
+    console.log(coursesAndDurationArray[2].title, 'Super');
+
+} if (coursesAndDurationArray[3].monthDuration > 5) {
+    console.log(coursesAndDurationArray[3].title, 'Super');
+
+} if (coursesAndDurationArray[4].monthDuration > 5) {
+    console.log(coursesAndDurationArray[4].title, 'Super');
+
+} if (coursesAndDurationArray[5].monthDuration > 5) {
+    console.log(coursesAndDurationArray[5].title, 'Super');
+}
+
+console.log('Це все на сьогодні! Нижче - для прикладу на майбутнє, щоб орієнтуватись!')
+
+
+
+
+
+
+//-------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
+
+// Це для прикладу!!!
+
+// Перевіряємо кожен елемент масиву на тривалість навчання за допомогою циклу
+for (let i = 0; i < coursesAndDurationArray.length; i++) {
+    const course = coursesAndDurationArray[i];
+
+    // Перевіряємо, чи тривалість навчання перевищує 5 місяців
+    if (course.monthDuration >5) {
+        console.log(`${course.title} - Super`);
+    }
+}
+
+
+// метод filter()
+// Використовуємо метод filter() для відбору курсів з тривалістю навчання більше 5 місяців
+let longCourses = coursesAndDurationArray.filter(course => course.monthDuration > 5);
+
+// Виводимо всі курси з тривалістю навчання більше 5 місяців
+longCourses.forEach(course => {
+    console.log(course.title, 'Super');
+});

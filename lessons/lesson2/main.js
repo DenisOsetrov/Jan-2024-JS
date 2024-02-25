@@ -197,4 +197,19 @@ if (age >= 18 && age <= 30 && score > 75) {
 }
 
 
+// Switch
+let color2 = prompt('enter color');
 
+
+switch (color2) {
+    case 'green':
+    case 'yellow':
+        console.log('go!');
+
+        break;
+    case 'red':
+        console.log('stop');
+        break;
+    default:
+        console.log('????');
+}
