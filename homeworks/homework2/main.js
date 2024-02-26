@@ -346,3 +346,8 @@ let longCourses = coursesAndDurationArray.filter(course => course.monthDuration 
 longCourses.forEach(course => {
     console.log(course.title, 'Super');
 });
+
+// Зазвичай forEach() використовується в тих випадках, коли ви хочете виконати однакову
+// дію для кожного елемента масиву, а for...of використовується в тих випадках,
+// коли вам також потрібно отримати доступ до індексів або виконати інші операції,
+// крім простого перебору.
