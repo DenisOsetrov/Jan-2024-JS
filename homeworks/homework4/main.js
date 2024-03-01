@@ -297,11 +297,59 @@ console.log(swat)                                // [11, 33, 22, 44]
 
 
 
+
 //----------------------------Task 13.-----------------------------
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
 
+function  exchange (sumUAH,currencyValues,exchangeCurrency) {
+    for (const item of currencyValues) {
+        if (item.currency === exchangeCurrency){
+            return sumUAH/item.value;
+        }
+    }
+}
+console.log(exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD'))
 
+
+// 2 варіант
+function exchange2(sumUAH, currencyValues, exchangeCurrency) {
+    let exchangeRate = 0;
+    for (const item of currencyValues) {
+        if (item.currency === exchangeCurrency){
+            exchangeRate = item.value; // Зберігаємо обмінний курс для потрібної валюти
+            break;
+        }
+    }
+    // Використовуємо обмінний курс для обчислення результату обміну
+    return sumUAH / exchangeRate;
+}
+
+console.log(exchange2(10000, [{currency:'USD', value:40}, {currency:'EUR', value:42}], 'EUR'));
+
+
+
+// 2.1 варіант з використанням масиву з об'єктами
+function exchange3(sumUAH, currencyValues, exchangeCurrency) {
+    let exchangeRate = 0;
+    for (const item of currencyValues) {
+        if (item.currency === exchangeCurrency){
+            exchangeRate = item.value; // Зберігаємо обмінний курс для потрібної валюти
+            break;
+        }
+    }
+    // Використовуємо обмінний курс для обчислення результату обміну
+    let result = sumUAH / exchangeRate;
+    return parseFloat(result.toFixed(2)); // Округлюємо до 0,00 і перетворюємо у число
+}
+
+let currencyValues = [
+    {currency:'USD', value:40},
+    {currency:'EUR', value:42},
+    {currency: 'PLN', value: 9.37}
+];
+
+console.log(exchange3(10000, currencyValues, 'PLN'));
 
 
 
