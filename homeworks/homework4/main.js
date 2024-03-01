@@ -1,5 +1,5 @@
 // Task 1.
-// - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+// - створити функцію яка обчислює та повертає площу прямокутника зі сторонами a і b
 
 
 // Без return!
@@ -11,7 +11,7 @@ function areaOfRectangle1(a, b) {
 }
 
 areaOfRectangle1(4, 5);
-console.log(area);
+console.log('Площа прямокутника зі сторонами a і b дорівнює ', area);
 
 // з return!
 
@@ -20,7 +20,8 @@ function areaOfRectangle2(a, b) {
 }
 
 let qwe = areaOfRectangle2(5, 5);
-console.log(qwe);
+console.log('Площа прямокутника зі сторонами a і b дорівнює ', qwe)
+
 
 //-----------------------------------------Для себе!!!------------------------------------
 // Використання функції areaOfRectangle2 з масивом з об'єктами
@@ -42,14 +43,14 @@ for (let i = 0; i < rectangles.length; i++) {
 }
 console.log(rectanglesArea);  // результат роботи ф-ції [50, 12, 6, 16, 25, 40]
 
+
 // - створити функцію яка обчислює та повертає площу кола з радіусом r
 
 function areaOfCircle(r) {
     return Math.PI*(r**2);
 }
-console.log(areaOfCircle(2));
+// console.log(areaOfCircle(2));
 // використання функції і виведення результату
-
 let radius1 = 25;
 let radius1Area = areaOfCircle(radius1);
 // console.log(`Площа кола з радіусом ${radius1} дорівнює ${radius1Area}`);
@@ -58,11 +59,96 @@ console.log('Площа кола з радіусом ', radius1, 'дорівню
 
 
 // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
+
+function calcAreaCylinder (r,h) {
+    return 2*Math.PI*r*(r+h);
+}
+
+// console.log(calcAreaCylinder(3,5));
+let h = 4;
+let r = 2;
+let qwe1 =calcAreaCylinder(r,h);
+console.log('Площа циліндра висотою ', h, 'та радіутом ', r, 'дорівнює ', qwe1);
+
+
 // - створити функцію яка приймає масив та виводить кожен його елемент
+const numbers = [11,22,33,44,55];
+function removes (arr) {
+    for (let i = 0; i < numbers.length; i++) {
+        const number = numbers[i];
+        // console.log(i);   // виводить порядковий № масиву
+        // console.log(arr)  // виводить кожну ітерацію увесь масив
+        console.log(arr[i])  // виводить 1 елемент масиву
+        // document.write(`<div><h3>${arr[i]}</h3></div>`);
+    }
+}
+removes(numbers);
+
+
+
 // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
+let text = 'Довільний текст будь-якоро розміру!';
+
+function addText (t) {
+    document.write(`
+    <div>
+    <p>${t}</p>
+</div>`)
+}
+addText(text);
+
+// додаю функцію, що має два аргумента (кіл.параграфів, текст)
+//  створюю функцію, що створює параграфи і додає текст
+let paragraphCount = 3;
+function addParagraph(p, t) {
+    for (let i = 0; i < paragraphCount; i++) {
+        document.write(`<p style="color: burlywood">${t}</p>`)
+    }
+}
+addParagraph(paragraphCount,text);
+
+
 // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
-// - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+
+function addUl (t) {
+    document.write(`<ul style="color: coral">
+<li>${t}</li>
+<li>${t}</li>
+<li>${t}</li>
+</ul>`)
+}
+addUl('Text');
+
+
+// - створити функцію яка створює ul з трьома елементами li.
+// Текст li задати через аргумент всім однаковий.
+// Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+
+function addLi (countLi, t) {
+    document.write(`<ul style="color: chocolate">`)
+
+    for (let i = 0; i < countLi; i++) {
+        document.write(`<li>${t}</li>`)
+    }
+
+    document.write(`</ul>`)
+}
+addLi(5,text)
+
+
 // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
+let arr11 = [12,11,10,'string', true];
+
+function printArr (arr) {
+    document.write(`<ul>`)
+    for (const item of arr) {
+       document.write(`<li>${item}</li>`)
+    }
+    document.write(`</ul>`)
+}
+printArr(arr11)
+
+
 // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
 // - створити функцію яка повертає найменьше число з масиву
 // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
