@@ -200,7 +200,7 @@ function printUsers1(arr) {
     for (const arrElement of arr) {
         document.write(`<div>
             <p>User has id: ${arrElement.id}, name: ${arrElement.name}, age: ${arrElement.age}.</p>
-</div>`)
+                        </div>`);
     }
 }
 
@@ -291,7 +291,7 @@ function changeIndex (arr, index1, index2) {
 }
 
 changeIndex(swat,2,1);
-console.log(swat)                                // [11, 33, 22, 44]
+console.log(swat);                                // [11, 33, 22, 44]
 
 
 
@@ -308,7 +308,7 @@ function  exchange (sumUAH,currencyValues,exchangeCurrency) {
         }
     }
 }
-console.log(exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD'))
+console.log(exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD'));
 
 
 // 2 варіант
