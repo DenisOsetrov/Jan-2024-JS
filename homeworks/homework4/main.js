@@ -208,7 +208,7 @@ function minMaxValue(arr) {
             max = arr[i];
         }
     }
-return {min, max};
+    return {min, max};
 }
 
 console.log(minMaxValue(summa));
@@ -216,9 +216,9 @@ console.log(minMaxValue(summa));
 
 // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
 
-let sum = [10,20,70];
+let sum = [10, 20, 70];
 
-function calculateSum (arr) {
+function calculateSum(arr) {
     let sumElement = 0;
     for (const arrElement of arr) {
         sumElement += arrElement;
@@ -229,7 +229,11 @@ function calculateSum (arr) {
 console.log(calculateSum(sum))
 
 
-// - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
+
+
+// - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відповідних індексах
 // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+
+
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
