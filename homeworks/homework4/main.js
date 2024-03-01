@@ -47,7 +47,6 @@ console.log(rectanglesArea);  // результат роботи ф-ції [50, 
 
 
 //----------------------------Task 2.-----------------------------
-
 // - створити функцію яка обчислює та повертає площу кола з радіусом r
 
 function areaOfCircle(r) {
@@ -101,7 +100,7 @@ removes(numbers);
 
 //----------------------------Task 5.-----------------------------
 // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
-let text = 'Довільний текст будь-якоро розміру!';
+let text = 'Довільний текст будь-якого розміру!';
 
 function addText(t) {
     document.write(`
@@ -152,16 +151,16 @@ addUl('Text');
 // Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
 
 function addLi(countLi, t) {
-    document.write(`<ul style="color: chocolate">`)
+    document.write(`<ul style="color: chocolate">`);
 
     for (let i = 0; i < countLi; i++) {
-        document.write(`<li>${t}</li>`)
+        document.write(`<li>${t}</li>`);
     }
 
-    document.write(`</ul>`)
+    document.write(`</ul>`);
 }
 
-addLi(5, text)
+addLi(5, text);
 
 
 
@@ -173,14 +172,14 @@ addLi(5, text)
 let arr11 = [12, 11, 10, 'string', true];
 
 function printArr(arr) {
-    document.write(`<ul>`)
+    document.write(`<ul>`);
     for (const item of arr) {
-        document.write(`<li>${item}</li>`)
+        document.write(`<li>${item}</li>`);
     }
-    document.write(`</ul>`)
+    document.write(`</ul>`);
 }
 
-printArr(arr11)
+printArr(arr11);
 
 
 
@@ -205,20 +204,20 @@ function printUsers1(arr) {
     }
 }
 
-printUsers1(arrUsers)
+printUsers1(arrUsers);
 
 
 // виводить окремо блок і кожен елемент
 function printUsers2(arr) {
     for (const arrElement of arr) {
 
-        document.write(`<div style="margin: 5px; border: 2px solid rebeccapurple; width: 200px;font-size: 15px; padding-left: 5px">`)
+        document.write(`<div style="margin: 5px; border: 2px solid rebeccapurple; width: 200px;font-size: 15px; padding-left: 5px">`);
 
         for (const key in arrElement) {
-            document.write(`<p>${key}: ${arrElement[key]}</p>`)
+            document.write(`<p>${key}: ${arrElement[key]}</p>`);
         }
 
-        document.write(`</div>`)
+        document.write(`</div>`);
     }
 
 }
@@ -270,7 +269,7 @@ function calculateSum(arr) {
     return sumElement;
 }
 
-console.log(calculateSum(sum))
+console.log(calculateSum(sum));
 
 
 
