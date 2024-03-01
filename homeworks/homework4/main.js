@@ -75,7 +75,6 @@ console.log('Площа циліндра висотою ', h, 'та радіут
 const numbers = [11,22,33,44,55];
 function removes (arr) {
     for (let i = 0; i < numbers.length; i++) {
-        const number = numbers[i];
         // console.log(i);   // виводить порядковий № масиву
         // console.log(arr)  // виводить кожну ітерацію увесь масив
         console.log(arr[i])  // виводить 1 елемент масиву
