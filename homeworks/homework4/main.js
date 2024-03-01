@@ -221,6 +221,8 @@ let sum = [10, 20, 70];
 function calculateSum(arr) {
     let sumElement = 0;
     for (const arrElement of arr) {
+
+        // sumElement = sumElement + arrElement;
         sumElement += arrElement;
     }
     return sumElement;
@@ -233,6 +235,28 @@ console.log(calculateSum(sum))
 
 // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відповідних індексах
 // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+
+let swat = [11,22,33,44];
+
+function changeIndex (arr, index1, index2) {
+    if(index1>=0 && index1<arr.length && index2>=0 && index2<arr.length) {  // чи індекси є в межах масиву
+        let temp = arr[index1];                                             // Зберігаємо значення першого елемента
+        arr[index1] = arr[index2];               // Замінюємо значення першого елемента на значення другого елемента
+        arr[index2] = temp;
+    }
+    return arr;                                  // Повертаємо масив зі зміненими значеннями
+}
+
+changeIndex(swat,2,1);
+console.log(swat)                                // [11, 33, 22, 44]
+
+
+
+
+
+
+
+
 
 
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
