@@ -383,23 +383,3 @@ let  exchange = (sumUAH,currencyValues,exchangeCurrency) => {
     }
 }
 console.log(exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD'));
-
-
-// 2 варіант
-function exchange2(sumUAH, currencyValues, exchangeCurrency) {
-    let exchangeRate = 0;
-    for (const item of currencyValues) {
-        if (item.currency === exchangeCurrency){
-            exchangeRate = item.value; // Зберігаємо обмінний курс для потрібної валюти
-            break;
-        }
-    }
-    // Використовуємо обмінний курс для обчислення результату обміну
-    return sumUAH / exchangeRate;
-}
-
-console.log(exchange2(10000, [{currency:'USD', value:40}, {currency:'EUR', value:42}], 'EUR'));
-
-
-
-
