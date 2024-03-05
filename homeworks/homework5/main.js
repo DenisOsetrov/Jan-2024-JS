@@ -238,9 +238,11 @@ createListWithItems3(liItems, 2);
 
 //----------------------------Task 8.-----------------------------
 // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
-let arr11 = [12, 11, 10, 'string', true];
 
-function printArr(arr) {
+//  arrow function
+const arrItems = [12, 11, 10, 'string', true];
+
+let printArr =  (arr) => {
     document.write(`<ul>`);
     for (const item of arr) {
         document.write(`<li>${item}</li>`);
@@ -248,7 +250,7 @@ function printArr(arr) {
     document.write(`</ul>`);
 }
 
-printArr(arr11);
+printArr(arrItems);
 
 
 
@@ -257,7 +259,7 @@ printArr(arr11);
 //----------------------------Task 9.-----------------------------
 // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
 
-let arrUsers = [
+let users = [
     {id: 1, name: 'Max', age: 31},
     {id: 2, name: 'Tom', age: 30},
     // {id: 3, name: 'Nikolas', age: 29},
@@ -265,7 +267,7 @@ let arrUsers = [
     // {id: 5, name: 'Max', age: 30}
 ]
 
-function printUsers1(arr) {
+let printUsers1= (arr) => {
     for (const arrElement of arr) {
         document.write(`<div>
             <p>User has id: ${arrElement.id}, name: ${arrElement.name}, age: ${arrElement.age}.</p>
@@ -273,11 +275,11 @@ function printUsers1(arr) {
     }
 }
 
-printUsers1(arrUsers);
+printUsers1(users);
 
 
 // виводить окремо блок і кожен елемент
-function printUsers2(arr) {
+let printUsers2 = (arr) => {
     for (const arrElement of arr) {
 
         document.write(`<div style="margin: 5px; border: 2px solid rebeccapurple; width: 200px;font-size: 15px; padding-left: 5px">`);
@@ -285,13 +287,11 @@ function printUsers2(arr) {
         for (const key in arrElement) {
             document.write(`<p>${key}: ${arrElement[key]}</p>`);
         }
-
         document.write(`</div>`);
     }
-
 }
 
-printUsers2(arrUsers);
+printUsers2(users);
 
 
 
@@ -302,9 +302,11 @@ printUsers2(arrUsers);
 // - створити функцію яка повертає найменьше число з масиву
 let summa = [2, 3, 6, 9, 1, 8, 13];
 
-function minMaxValue(arr) {
+let minMaxValue = (arr) => {
+
     let min = arr[0];
     let max = arr[0];
+
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] < min) {
             min = arr[i];
@@ -314,8 +316,11 @@ function minMaxValue(arr) {
         }
     }
     return {min, max};
+
 }
 
+let {min, max} = minMaxValue(summa);
+document.write(`<div><p>Найменше значення - ${min}, найбільше значення - ${max}</p></div>`)
 console.log(minMaxValue(summa));
 
 
@@ -328,7 +333,7 @@ console.log(minMaxValue(summa));
 
 let sum = [10, 20, 70];
 
-function calculateSum(arr) {
+let calculateSumma = (arr) => {
     let sumElement = 0;
     for (const arrElement of arr) {
 
@@ -338,21 +343,22 @@ function calculateSum(arr) {
     return sumElement;
 }
 
-console.log(calculateSum(sum));
+console.log(calculateSumma(sum));
 
 
 
 
 
 //----------------------------Task 12.-----------------------------
-// - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відповідних індексах
+// - створити функцію swap(arr,index1,index2). Функція міняє місцями значення у відповідних індексах
 // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
 
-let swat = [11,22,33,44];
 
-function changeIndex (arr, index1, index2) {
-    if(index1>=0 && index1<arr.length && index2>=0 && index2<arr.length) {  // чи індекси є в межах масиву
-        let temp = arr[index1];                                             // Зберігаємо значення першого елемента
+let swat = [22,44,66,88];
+
+let changeIndex = (arr, index1, index2) => {
+    if(index1>=0 && index1<arr.length && index2>=0 && index2<arr.length) {     // чи індекси є в межах масиву
+        let temp = arr[index1];                                                // Зберігаємо значення першого елемента
         arr[index1] = arr[index2];               // Замінюємо значення першого елемента на значення другого елемента
         arr[index2] = temp;
     }
@@ -360,8 +366,7 @@ function changeIndex (arr, index1, index2) {
 }
 
 changeIndex(swat,2,1);
-console.log(swat);                                // [11, 33, 22, 44]
-
+console.log(swat);
 
 
 
@@ -370,7 +375,7 @@ console.log(swat);                                // [11, 33, 22, 44]
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
 
-function  exchange (sumUAH,currencyValues,exchangeCurrency) {
+let  exchange = (sumUAH,currencyValues,exchangeCurrency) => {
     for (const item of currencyValues) {
         if (item.currency === exchangeCurrency){
             return sumUAH/item.value;
@@ -394,30 +399,6 @@ function exchange2(sumUAH, currencyValues, exchangeCurrency) {
 }
 
 console.log(exchange2(10000, [{currency:'USD', value:40}, {currency:'EUR', value:42}], 'EUR'));
-
-
-
-// 2.1 варіант з використанням масиву з об'єктами
-function exchange3(sumUAH, currencyValues, exchangeCurrency) {
-    let exchangeRate = 0;
-    for (const item of currencyValues) {
-        if (item.currency === exchangeCurrency){
-            exchangeRate = item.value; // Зберігаємо обмінний курс для потрібної валюти
-            break;
-        }
-    }
-    // Використовуємо обмінний курс для обчислення результату обміну
-    let result = sumUAH / exchangeRate;
-    return parseFloat(result.toFixed(2)); // Округлюємо до 0,00 і перетворюємо у число
-}
-
-let currencyValues = [
-    {currency:'USD', value:40},
-    {currency:'EUR', value:42},
-    {currency: 'PLN', value: 9.37}
-];
-
-console.log(exchange3(10000, currencyValues, 'PLN'));
 
 
 
