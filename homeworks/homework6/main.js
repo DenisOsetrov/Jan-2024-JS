@@ -60,7 +60,7 @@ console.log(dirtyString.trimStart().trimEnd()); // Видаляє спочатк
 
 console.log(dirtyString.substring(1,13));       // Вирізає рядок у заданому діапазоні
 
-
+console.log(dirtyString.split(' ').filter((item) => item.length).join(' ')); // "dirty string"
 
 
 // - Напишіть функцію stringToArray(str), яка перетворює рядок на масив слів.
@@ -98,8 +98,38 @@ console.log(numberString2);
 // sortNums(nums,'ascending') // [3,11,21]
 // sortNums(nums,'descending') // [21,11,3]
 
+let nums = [11,21,3];
 
+let sortNums = (arr, order) => {
+    if (order === 'ascending') {
+        return arr.sort((a, b) => a - b)
+    }
+    if (order === 'descending') {
+        return arr.sort((a, b) => b - a)
+    }
+    else {
+        console.error('Неправильний напрямок сортування. Використовуйте "ascending" або "descending".')
+        return 'Обери ascending або descending в order - аргумент функції!'
+    }
+}
 
+console.log(sortNums(nums, 'ascending'));
+console.log(sortNums(nums, 'descending'));
+console.log(sortNums(nums, 'foobar'));
 
+let sortedArray = sortNums(nums, 'ascending');   // Викликаємо функцію та зберігаємо результат в змінну
+console.log(sortedArray);
 
+// - є масив
+// -- відсортувати його за спаданням за monthDuration
+// -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
+// -- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
 
+let coursesAndDurationArray = [
+    {title: 'JavaScript Complex', monthDuration: 5},
+    {title: 'Java Complex', monthDuration: 6},
+    {title: 'Python Complex', monthDuration: 6},
+    {title: 'QA Complex', monthDuration: 4},
+    {title: 'FullStack', monthDuration: 7},
+    {title: 'Frontend', monthDuration: 4}
+];
