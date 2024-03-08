@@ -120,11 +120,12 @@ console.log(sortNums(nums, 'foobar'));
 let sortedArray = sortNums(nums, 'ascending');   // Викликаємо функцію та зберігаємо результат в змінну
 console.log(sortedArray);
 
-// - є масив
-// -- відсортувати його за спаданням за monthDuration
-// -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
-// -- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
 
+
+
+
+
+// - є масив
 let coursesAndDurationArray = [
     {title: 'JavaScript Complex', monthDuration: 5},
     {title: 'Java Complex', monthDuration: 6},
@@ -133,3 +134,34 @@ let coursesAndDurationArray = [
     {title: 'FullStack', monthDuration: 7},
     {title: 'Frontend', monthDuration: 4}
 ];
+
+
+// -- відсортувати його за спаданням за monthDuration
+let sortMonthDurationReduction = (coursesArray) => coursesArray
+    .sort((a, b) =>
+        b.monthDuration-a.monthDuration);
+console.log(sortMonthDurationReduction(coursesAndDurationArray));  // спадання
+
+let sortMonthDurationIncrease =(coursesArray) => coursesArray
+    .sort((a, b) =>
+        a.monthDuration - b.monthDuration);
+console.log(sortMonthDurationIncrease(coursesAndDurationArray));   // зростання
+
+
+// - відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
+
+let filterCourses = (arr) => arr.filter(item => item.monthDuration > 5);
+console.log(filterCourses(coursesAndDurationArray));
+
+
+// - за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
+
+
+
+
+
+
+
+
+
+
