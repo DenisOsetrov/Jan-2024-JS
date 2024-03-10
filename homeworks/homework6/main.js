@@ -115,12 +115,10 @@ let sortNums = (arr, order) => {
 
 console.log(sortNums(nums, 'ascending'));
 console.log(sortNums(nums, 'descending'));
-console.log(sortNums(nums, 'foobar'));
+// console.log(sortNums(nums, 'foobar'));
 
 let sortedArray = sortNums(nums, 'ascending');   // Викликаємо функцію та зберігаємо результат в змінну
 console.log(sortedArray);
-
-
 
 
 
@@ -136,7 +134,7 @@ let coursesAndDurationArray = [
 ];
 
 
-// -- відсортувати його за спаданням за monthDuration
+// -- відсортувати його за спаданням за monthDuration  --- через створення функції!
 let sortMonthDurationReduction = (coursesArray) => coursesArray
     .sort((a, b) =>
         b.monthDuration-a.monthDuration);
@@ -148,15 +146,280 @@ let sortMonthDurationIncrease =(coursesArray) => coursesArray
 console.log(sortMonthDurationIncrease(coursesAndDurationArray));   // зростання
 
 
-// - відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
+// -- відсортувати його за спаданням за monthDuration
+let sortMonthDurationReduction2 = coursesAndDurationArray.sort((a, b) => b-a);
+console.log(sortMonthDurationReduction2);
 
+
+// - відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців --- через створення функції!
 let filterCourses = (arr) => arr.filter(item => item.monthDuration > 5);
 console.log(filterCourses(coursesAndDurationArray));
 
 
+// - відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
+let filterCourses2 = coursesAndDurationArray.filter(item =>
+    item.monthDuration > 5);
+console.log(filterCourses2);
+
+
 // - за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
 
+let changedCoursesAndDurationArray = coursesAndDurationArray.map((course, index) => ({
+    id: index +1,
+    title: course.title,
+    monthDuration: course.monthDuration})
+)
+console.log(changedCoursesAndDurationArray);
 
+
+
+
+
+//  описати колоду карт (від 6 до туза без джокерів)
+let cards = [
+//spade black
+    { cardSuit: 'spade', value: '6', color: 'black' },
+    { cardSuit: 'spade', value: '7', color: 'black' },
+    { cardSuit: 'spade', value: '8', color: 'black' },
+    { cardSuit: 'spade', value: '9', color: 'black' },
+    { cardSuit: 'spade', value: '10', color: 'black' },
+    { cardSuit: 'spade', value: 'jack', color: 'black' },
+    { cardSuit: 'spade', value: 'queen', color: 'black' },
+    { cardSuit: 'spade', value: 'king', color: 'black' },
+    { cardSuit: 'spade', value: 'ace', color: 'black' },
+//diamond red
+    { cardSuit: 'diamond', value: '6', color: 'red' },
+    { cardSuit: 'diamond', value: '7', color: 'red' },
+    { cardSuit: 'diamond', value: '8', color: 'red' },
+    { cardSuit: 'diamond', value: '9', color: 'red' },
+    { cardSuit: 'diamond', value: '10', color: 'red' },
+    { cardSuit: 'diamond', value: 'jack', color: 'red' },
+    { cardSuit: 'diamond', value: 'queen', color: 'red' },
+    { cardSuit: 'diamond', value: 'king', color: 'red' },
+    { cardSuit: 'diamond', value: 'ace', color: 'red' },
+//heart red
+    { cardSuit: 'heart', value: '6', color: 'red' },
+    { cardSuit: 'heart', value: '7', color: 'red' },
+    { cardSuit: 'heart', value: '8', color: 'red' },
+    { cardSuit: 'heart', value: '9', color: 'red' },
+    { cardSuit: 'heart', value: '10', color: 'red' },
+    { cardSuit: 'heart', value: 'jack', color: 'red' },
+    { cardSuit: 'heart', value: 'queen', color: 'red' },
+    { cardSuit: 'heart', value: 'king', color: 'red' },
+    { cardSuit: 'heart', value: 'ace', color: 'red' },
+//clubs black
+    { cardSuit: 'clubs', value: '6', color: 'black' },
+    { cardSuit: 'clubs', value: '7', color: 'black' },
+    { cardSuit: 'clubs', value: '8', color: 'black' },
+    { cardSuit: 'clubs', value: '9', color: 'black' },
+    { cardSuit: 'clubs', value: '10', color: 'black' },
+    { cardSuit: 'clubs', value: 'jack', color: 'black' },
+    { cardSuit: 'clubs', value: 'queen', color: 'black' },
+    { cardSuit: 'clubs', value: 'king', color: 'black' },
+    { cardSuit: 'clubs', value: 'ace', color: 'black' },
+]
+
+//  - знайти піковий туз  - 1!
+let findSpadeAce = cards.find(card => card.cardSuit === 'spade' && card.value === 'ace');
+console.log(findSpadeAce);
+
+//  - знайти піковий туз  - 2!
+let findSpadeAce2 = cards.filter(card => card.cardSuit === 'spade' && card.value === 'ace');
+console.log(findSpadeAce2);
+
+//  - знайти піковий туз  - 2 з перевіркою!
+let findSpadeAce3 = cards.filter(card => card.cardSuit === 'spade' && card.value === 'ace');
+
+// Перевірка на довжину масива
+// if (findSpadeAce3.length > 0) {
+//     console.log(findSpadeAce3[0]);
+// } else {
+//     console.log('Пікового туза в колоді немає!');
+// }
+
+if (findSpadeAce3.length > 0) {
+    console.log(findSpadeAce3[0]);
+} else {
+    console.log('Пікового туза в колоді немає!');
+}
+
+
+//  - всі шістки
+// find - не підходить, бо знаходить 1-е значення!!!
+let sixValue = cards.filter(card => card.value === '6');
+console.log(sixValue);
+
+// робимо перевірку через .includes - отримуємо true чи false
+let allSixes = cards.filter(card => card.value === '6' && ['spade', 'diamond', 'heart', 'clubs'].includes(card.cardSuit));
+console.log(allSixes);
+
+
+//  - всі червоні карти
+let redCards = cards.filter(card => card.color ==='red');
+console.log(redCards);
+
+
+//  - всі буби
+let diamondCards = cards.filter(card => card.cardSuit === 'diamond');
+console.log(diamondCards);
+
+
+//  - всі трефи від 9 та більше - порівняли чи є такі в масиві!
+let clubsValue = cards.filter(card => card.cardSuit === 'clubs' && ['9', '10', 'jack', 'queen', 'king', 'ace'].includes(card.value));
+console.log(clubsValue);
+
+//  - всі трефи від 9 та більше - видалили 3 перших елементи
+let clubsValue2 = cards.filter(card => card.cardSuit === 'clubs')
+    clubsValue2.splice(0, 3);     // відрізаний масив елементів ніде не використовуємо!
+console.log(clubsValue2);
+
+
+// Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
+// {
+//     spades:[],
+//     diamonds:[],
+//     hearts:[],
+//     clubs:[]
+// }
+
+// v1.1
+let packedCards = cards.reduce((accumulator, currentValue) => {
+    if (!accumulator[currentValue.cardSuit]) {
+        accumulator[currentValue.cardSuit] = [];
+    }
+    accumulator[currentValue.cardSuit].push(currentValue);
+    return accumulator;
+}, {});
+
+console.log(packedCards);
+
+
+// v2.1
+let packedCards2 = cards.reduce((accumulator, currentValue) => {
+    accumulator[currentValue.cardSuit] = [...(accumulator[currentValue.cardSuit] || []), currentValue];
+    return accumulator;
+}, {});
+
+console.log(packedCards2);
+
+
+// v3.1
+const packedCards3 = cards.reduce((acc, current) => {
+  acc[current.cardSuit].push(current);
+  return acc;
+}, { spade:[], diamond:[], heart:[], clubs:[] });
+
+console.log(packedCards3)
+
+
+// v3.2
+const packedCards4 = cards.reduce((acc, current) => {
+    const { cardSuit } = current;
+    if (!acc[cardSuit]) {
+        acc[cardSuit] = []; // Ініціалізуємо масив, якщо він ще не існує
+    }
+    acc[cardSuit].push(current);
+    return acc;
+}, {});
+
+console.log(packedCards4);
+
+// packedCards: класичний метод з перевіркою наявності ключа перед додаванням значення.
+// packedCards2: зручний синтаксис розширення масиву [...(accumulator[currentValue.cardSuit] || []), currentValue], щоб уникнути перевірки наявності ключа.
+// packedCards3: Цей метод створює об'єкт з попередньо ініціалізованими пустими масивами для кожного ключа перед початком операцій. Він гарний для випадків, коли ми точно знаємо, які ключі ми очікуємо, і хочемо уникнути перевірки наявності ключів під час виконання.
+// packedCards4: Цей підхід використовує деструктуризацію об'єкта current для отримання значення cardSuit.
+
+
+
+
+// взяти з arrays.js (який лежить в папці 2023 plan) масив coursesArray
+// --написати пошук всіх об'єктів, в який в modules є sass
+// --написати пошук всіх об'єктів, в який в modules є docker
+
+let coursesArray = [
+    {
+        title: 'JavaScript Complex',
+        monthDuration: 5,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+        title: 'Java Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'java core',
+            'java advanced']
+    },
+    {
+        title: 'Python Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'python core',
+            'python advanced']
+    },
+    {
+        title: 'QA Complex',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+        title: 'FullStack',
+        monthDuration: 7,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'react',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'node.js',
+            'python',
+            'java']
+    },
+    {
+        title: 'Frontend',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+];
+
+let moduleSass = coursesArray.filter(course => course.modules.includes('sass'));
+console.log(moduleSass);
+
+let moduleDocker = coursesArray.filter(course => course.modules.includes('docker'));
+console.log(moduleDocker);
+
+
+// 2 варіант через метод .some - шукає хоч 1 елемент!
+
+let sassCourses = coursesArray.filter(course => course.modules.some(module => module === 'sass'));
+console.log(sassCourses);
+
+let dockerCourses = coursesArray.filter(course => course.modules.some(module => module === 'docker'));
+console.log(dockerCourses);
 
 
 
