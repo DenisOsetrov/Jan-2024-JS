@@ -164,7 +164,7 @@ function Car (model, producer, year, maxSpeed, volume) {
         this.year = year;
         this.maxSpeed = maxSpeed;
         this.volume = volume;
-        this.driver = [];
+        // this.driver = [];
 
         this.drive = () => console.log(`Їдемо зі швидкістю ${maxSpeed} на годину!`);
 
@@ -173,54 +173,60 @@ function Car (model, producer, year, maxSpeed, volume) {
 
         // динамічно вивели всі ключі з інформацією про автомобіль
         this.info = function ()  {
+            console.log(`Інформацію про машину оновлено!`)
             for (const key in this) {
                 if (typeof this[key] !== "function")     // Перевірка, чи не є ключ функцією
                 console.log(`${key}: ${this[key]}`);
             }
         }
 
+        this.increaseMaxSpeed = (newSpeed) => {
+            let maxSpeedValue = 300;    // вказуємо максимально допустиме значення швидкості!
+            let speed = this.maxSpeed + newSpeed;
+            if (speed < 0) {
+                this.maxSpeed = 0;              // Усуваємо випадок від'ємної швидкості, переводимо до 0
+            }
+            else if (speed > maxSpeedValue) {
+                this.maxSpeed = maxSpeedValue   // вказуємо, щоб не перевищувало макс. швидкості
+            }
+                else {
+                    this.maxSpeed = speed;
+                }
+            console.log(`Швидкість збільшена до: ${this.maxSpeed} км/год`)
+        }
+
+
+        this.changeYear = (newValue) => {
+            this.year = newValue;
+            console.log(`Рік випуску змінено на: ${this.year}`);
+            }
+
+
+        this.addDriver = (driver) => {
+
+        }
+// - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
+
 }
 
-// car drive!
-let car12 = new Car('sdf', 'eeee', '1212', 60, 190);
-// car12.drive();
-car12.info();
-// car12.driver.add('iuh')
+
+let car1 = new Car('X5', 'BMW', '2024', 60, 5500);
+console.log('*****************Info drive!*****************')
+car1.drive();
+
+console.log('******************Info car!******************')
+car1.info();
+
+console.log('**********Info increase Max Speed!***********')
+car1.increaseMaxSpeed(230);
+car1.info();
+
+console.log('***************Info new year!****************')
+car1.changeYear(2015);
+car1.info();
 
 
 
-
-
-// function Car(model, producer, year, maxSpeed, volume) {
-//     this.model = model;
-//     this.producer = producer;
-//     this.year = year;
-//     this.maxSpeed = maxSpeed;
-//     this.volume = volume;
-//     this.drivers = [];
-//
-//   this.drive = function() {
-//     return `їдемо зі швидкістю ${this.maxSpeed} на годину`
-//   }
-//   this.info = function() {
-//     console.log('**** INFO ****')
-//     for (const key in this) {
-//       if (typeof this[key] === 'function') continue;
-//       console.log(`${key.toUpperCase()} - ${JSON.stringify(this[key])}`);
-//     }
-//     console.log('**** INFO ****')
-//   }
-//   this.increaseMaxSpeed =function(newSpeed) {
-//     const speed = this.maxSpeed + newSpeed;
-//     if (speed < 0) {
-//       this.maxSpeed = 0;
-//     } else {
-//       this.maxSpeed = speed;
-//     }
-//   }
-//   this.changeYear = function changeYear(newValue) {
-//     this.year = newValue;
-//   }
 //   this.addDriver = function(name, age, experience) {
 //     if (name.length < 2) throw new Error('Min name length 2 chars');
 //     this.drivers.push(new Driver(name, age, experience));
