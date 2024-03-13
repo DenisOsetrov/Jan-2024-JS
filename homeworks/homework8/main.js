@@ -26,9 +26,8 @@ function User(id, name, surname, email, phone) {
 
 // new User('Tom', 'So', 'zzz@com', 2323);
 
-
-
-
+//****************************************************************************************
+//****************************************************************************************
 
 // створити пустий масив, наповнити його 10 об'єктами new User(....)
 
@@ -164,7 +163,7 @@ function Car (model, producer, year, maxSpeed, volume) {
         this.year = year;
         this.maxSpeed = maxSpeed;
         this.volume = volume;
-        // this.driver = [];
+        this.driver = [];
 
         this.drive = () => console.log(`Їдемо зі швидкістю ${maxSpeed} на годину!`);
 
@@ -201,11 +200,38 @@ function Car (model, producer, year, maxSpeed, volume) {
             console.log(`Рік випуску змінено на: ${this.year}`);
             }
 
+        // встановлюємо лише 1 водія
+        // this.addDriver = (driver) => {
+        //     this.driver = driver;
+        // }
 
-        this.addDriver = (driver) => {
-
+        this.addDriver = function (driver) {
+            this.driver.push(driver);
+            console.log(`Водія на ім'я ${driver.name} успішно додано до автомобіля ${this.model}`)
         }
-// - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
+
+    // Оголошуємо клас Driver, який відповідає за водіїв
+    // Функцію Driver краще визначити поза класом Car, оскільки це є окремою сутністю!
+//     function Driver(name, age, experience) {
+//         this.name = name;     // Ім'я водія
+//         this.age = age;       // Вік водія
+//         this.experience = experience;   // Досвід водія
+//     }
+//
+//     // Функція для додавання водія до автомобіля
+//     this.addDriver = function(driver) {
+//         if (driver instanceof Driver) { // Перевіряємо, чи переданий об'єкт є екземпляром класу Driver
+//             this.driver.push(driver); // Додаємо водія до списку водіїв автомобіля
+//             console.log(`Водія на ім'я ${driver.name} успішно додано до автомобіля ${this.model}`);
+//         } else {
+//             console.log('Invalid driver object'); // Виводимо повідомлення про помилку, якщо переданий об'єкт не є водієм
+//         }
+//     }
+//
+// // Створюємо екземпляр класу Driver
+//     const driver1 = new Driver('Jimi', 'Shon', 35, '15 years');
+// // Додаємо водія до автомобіля
+//     car1.addDriver(driver1);
 
 }
 
@@ -225,45 +251,19 @@ console.log('***************Info new year!****************')
 car1.changeYear(2015);
 car1.info();
 
+console.log('**********Info for add new driver!***********')
+const driver1 = {name: 'Jimi', surname: 'Shon', age: 35, skills: ['license A', 'license B', 'license C', 'Boxer']};
+car1.addDriver(driver1);
+car1.info();
 
-
-//   this.addDriver = function(name, age, experience) {
-//     if (name.length < 2) throw new Error('Min name length 2 chars');
-//     this.drivers.push(new Driver(name, age, experience));
-//   }
-// }
-// function Driver(name, age, experience) {
-//     this.name = name;
-//     this.age = age;
-//     this.experience = experience;
-// }
-//
-// const car1 = new Car('A7', 'Audi', 2017, 320, 3.8)
-// car1.drive()
-// car1.info()
-// car1.increaseMaxSpeed(-2000)
-// car1.info()
-// car1.changeYear(1300);
-// car1.info()
-// car1.addDriver('Max', 19, 1);
-// car1.addDriver('Anna', 16, 2);
-// car1.info()
+console.log('***************driver array*****************')
+console.log(car1.driver)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//*******************************************************************************************
+//*******************************************************************************************
+//*******************************************************************************************
 // - (Те саме, тільки через клас)
 // Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
 // -- drive () - яка виводить в консоль `їдемо зі швидкістю ${максимальна швидкість} на годину`
@@ -271,10 +271,199 @@ car1.info();
 //     -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
 //     -- changeYear (newValue) - змінює рік випуску на значення newValue
 //     -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
-//
-//
-//
+//********************************************************************************************
+//********************************************************************************************
+//********************************************************************************************
+
+
+class CarClass {
+    constructor(model, producer, year, maxSpeed, volume) {
+        this.model = model;
+        this.producer = producer;
+        this.year = year;
+        this.maxSpeed = maxSpeed;
+        this.volume = volume;
+        this.driver = [];
+    }
+
+    drive() {
+        console.log(`Їдемо зі швидкістю ${this.maxSpeed} на годину!`);
+    }
+
+    info() {
+        console.log(`Інформацію про машину оновлено!`);
+        for (const key in this) {
+            if (typeof this[key] !== "function") {
+                console.log(`${key}: ${this[key]}`);
+            }
+        }
+    }
+
+    increaseMaxSpeed(newSpeed) {
+        const maxSpeedValue = 300;
+        let speed = this.maxSpeed + newSpeed;
+        if (speed < 0) {
+            this.maxSpeed = 0;
+        } else if (speed > maxSpeedValue) {
+            this.maxSpeed = maxSpeedValue;
+        } else {
+            this.maxSpeed = speed;
+        }
+        console.log(`Швидкість збільшена до: ${this.maxSpeed} км/год`);
+    }
+
+    changeYear(newValue) {
+        this.year = newValue;
+        console.log(`Рік випуску змінено на: ${this.year}`);
+    }
+
+    addDriver(driver) {
+        this.driver.push(driver);
+        console.log(`Водія на ім'я ${driver.name} успішно додано до автомобіля ${this.model}`);
+    }
+}
+
+class Driver {
+    constructor(name,surname, age, experience, skills) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.experience = experience;
+        this.skills =  skills || [];
+    }
+}
+
+const driver2 = new Driver('Tom', 'Cruz', 45, '15 years', ['license A', 'license B', 'license C', 'Boxer']);
+const car2 = new Car('X3', 'BMW', '2020', 90, 3500);
+car2.addDriver(driver2);
+car2.info();
+console.log(driver2.name, driver2.surname, driver2.age, driver2.experience, driver2.skills);
+console.log(`${driver2.name} ${driver2.surname}, ${driver2.age} years old, ${driver2.experience} of experience. Skills: ${driver2.skills.join(', ')}`);
+
+
+
+
+//*************************************************************************************************************
+//*************************************************************************************************************
+//*************************************************************************************************************
+
+
 // -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
 // Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
 // За допомоги циклу знайти яка попелюшка повинна бути з принцом.
 // Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+
+// використовуємо функцію конструктор для Попелюшки
+function Cinderella (name, age, footSize) {
+    this.name = name;
+    this.age = age;
+    this.footSize = footSize;
+}
+
+
+//  -----------------v1---------------
+// // Створюємо масив для зберігання попелюшок
+// let cinderellas = [];
+//
+// // Додаємо 10 попелюшок до масиву
+// for (let i = 1; i <= 10; i++) {
+//     let name = `Cinderella ${i}`; // Генеруємо унікальне ім'я для кожної попелюшки
+//     let age = Math.floor(Math.random() * 20) + 18; // Генеруємо випадковий вік від 18 до 37 років
+//     let footSize = Math.floor(Math.random() * 5) + 35; // Генеруємо випадковий розмір ноги від 35 до 39
+//
+//     // Створюємо нову попелюшку і додаємо її до масиву
+//     let cinderella = new Cinderella(name, age, footSize);
+//     cinderellas.push(cinderella);
+// }
+// console.log(cinderellas); // масив попелюшок
+
+
+// ------------------v2-----------------
+// // Статичний масив з іменами попелюшок
+// const names = ['Anna', 'Bella', 'Catherine', 'Diana', 'Elena', 'Fiona', 'Grace', 'Hannah', 'Isabella', 'Julia'];
+//
+// // Створюємо масив попелюшок, використовуючи функцію map для створення нового екземпляру Cinderella для кожного імені
+// const cinderellas = names.map(name => new Cinderella(name, Math.floor(Math.random() * 20) + 18, Math.floor(Math.random() * 5) + 35));
+//
+// console.log(cinderellas); // масив попелюшок
+
+
+// -------------------v3------------------
+// Створюємо масив попелюшок за допомогою створення кожного екземпляру окремо
+const cinderellas = [
+    new Cinderella('Anna', 18, 36),
+    new Cinderella('Bella', 19, 37),
+    new Cinderella('Catherine', 20, 38),
+    new Cinderella('Diana', 21, 39),
+    new Cinderella('Elena', 22, 40),
+    new Cinderella('Fiona', 23, 41),
+    new Cinderella('Grace', 24, 42),
+    new Cinderella('Hannah', 25, 43),
+    new Cinderella('Isabella', 26, 44),
+    new Cinderella('Julia', 27, 45)
+];
+
+console.log(cinderellas);
+
+
+
+// ----------------------------------------------------------------------------------
+// Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+class Prince  {
+    constructor(name, age, shoeSize) {
+        this.name = name;
+        this.age = age;
+        this.shoeSize = shoeSize;
+    }
+}
+
+const prince = new Prince('Robert', 42, 37);
+
+
+//-------------------------------------------------------------------------------------
+// За допомоги циклу знайти яка попелюшка повинна бути з принцом.
+for (const cinderella of cinderellas) {
+    if (cinderella.footSize === prince.shoeSize) {
+        prince.princesa = cinderella;
+        break;     // зупиняємо пошук Попелюшки!
+    }
+}
+console.log(prince)
+
+
+//---------------------------------------------------------------------------------------
+// Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+
+prince.girlfriend = cinderellas.find(item => item.footSize === prince.shoeSize);
+console.log(prince);
+
+
+
+
+// виконання з перевіркою
+let foundCinderella;
+for (const cinderella of cinderellas) {
+    if (cinderella.footSize === prince.shoeSize) {
+        foundCinderella = cinderella;
+        break;            // Зупиняємо цикл, якщо знайдено 1-у попелюшку
+    }
+}
+
+if (foundCinderella) {
+    console.log(`Принц ${prince.name} знайшов свою попелюшку! Це - ${foundCinderella.name}!`);
+} else {
+    console.log(`Принц ${prince.name} буде шукати далі!`);
+}
+
+
+// Також можемо використати метод масиву find з перевіркою!!!
+const foundCinderellaBySize = cinderellas.find(cinderella => cinderella.footSize === prince.shoeSize);
+
+if (foundCinderellaBySize) {
+    console.log(`${prince.name} знайшов свою попелюшку! Це - ${foundCinderellaBySize.name}!`);
+} else {
+    console.log(`${prince.name} не впорався з завданням!`);
+}
+
+
+
