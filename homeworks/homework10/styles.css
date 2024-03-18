@@ -1,0 +1,36 @@
+
+.center {
+    text-align: center;
+}
+
+.formContainer {
+    width: 30vw;
+    background-color: darkslategray;
+}
+.borderLabel{
+    width: 7vw;
+    margin: 5px;
+    padding: 5px; /* додайте відступи */
+    display: inline-block; /* для відображення міток в один ряд з вводом */
+}
+
+.borderInput {
+    width: 17vw;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.button {
+    width: 92%;
+    margin: 9px;
+    padding: 5px;
+}
+
+#getForm {
+    width: 28vw;
+    background-color: darkolivegreen;
+    margin-top: 20px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}

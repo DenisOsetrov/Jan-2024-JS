@@ -175,7 +175,7 @@ function Car (model, producer, year, maxSpeed, volume) {
             console.log(`Інформацію про машину оновлено!`)
             for (const key in this) {
                 if (typeof this[key] !== "function")     // Перевірка, чи не є ключ функцією
-                console.log(`${key}: ${this[key]}`);
+                console.log(`${key}`);
             }
         }
 
