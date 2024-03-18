@@ -167,7 +167,7 @@ for (let course of coursesAndDurationArray) {
 
     document.body.appendChild(itemDiv);         // Додавання <div> до DOM
 
-        // Отримуємо перший елемент з класом "heading"
+        // Отримуємо перший елемент з класом "heading" за потреби!!!
         heading = itemDiv.querySelector('.heading');
         // Змінюємо колір тексту
         heading.style.color = '#a9a9a9';
@@ -224,12 +224,30 @@ let simpsons = [
     },
 ];
 
+for (const simpson of simpsons) {
+    const simpsonDiv = document.createElement('div');
+    simpsonDiv.classList.add('member');
 
+    const nameTitle = document.createElement('h3');
+    nameTitle.textContent = `Name: ${simpson.name}`;
+    simpsonDiv.appendChild(nameTitle);
 
+    const ageParagraph = document.createElement('p');
+    ageParagraph.textContent = `Age: ${simpson.age}`;
+    simpsonDiv.appendChild(ageParagraph);
 
+    const infoParagraph = document.createElement('p');
+    infoParagraph.textContent = `Info: ${simpson.info}`;
+    infoParagraph.style.width = '60vw';
+    simpsonDiv.appendChild(infoParagraph);
 
+    const photoImg = document.createElement('img');
+    photoImg.src = simpson.photo;
+    photoImg.alt = `${simpson.name} ${simpson.surname}`;
+    simpsonDiv.appendChild(photoImg);
 
-
+    document.body.appendChild(simpsonDiv);
+}
 
 
 
@@ -243,3 +261,156 @@ createTaskNumberElement();
 //
 // Створити для кожного елементу масиву свій блок, блок розділити блоками, в яких будуть зберігатись значення окремих властивостей, для властивості modules зробити список з елементами
 // Приклад структири знаходиться у файлі example.png який лежить в папці з поточним фйлом
+
+let coursesArray = [
+    {
+        title: 'JavaScript Complex',
+        monthDuration: 5,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+        title: 'Java Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'java core',
+            'java advanced']
+    },
+    {
+        title: 'Python Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'python core',
+            'python advanced']
+    },
+    {
+        title: 'QA Complex',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+        title: 'FullStack',
+        monthDuration: 7,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'react',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'node.js',
+            'python',
+            'java']
+    },
+    {
+        title: 'Frontend',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+];
+
+// 1 варіант зі стилями, прописаними в html
+const body = document.body;
+for (const item of coursesArray) {
+  const block = document.createElement('div');
+  const title = document.createElement('h3');
+  const duration = document.createElement('div');
+  const month = document.createElement('div');
+  const hour = document.createElement('div');
+  const ul = document.createElement('ul');
+
+  title.innerText = item.title;
+  month.innerText = `monthDuration: ${item.monthDuration}`;
+  hour.innerText = `hourDuration: ${item.hourDuration}`;
+
+  for (const module of item.modules) {
+    const li = document.createElement('li');
+    li.innerText = module;
+    li.classList.add('elementsBlock', 'list-none');
+    ul.appendChild(li);
+  }
+
+  block.classList.add('main');
+  title.classList.add('text-center', 'elementsBlock');
+  duration.classList.add('flex');
+  month.classList.add('elementsBlock', 'text-center', 'grow1');
+  hour.classList.add('elementsBlock', 'text-center', 'grow5');
+  ul.classList.add('margin', 'elementsBlock')
+
+  duration.append(month, hour);
+  block.append(title, duration, ul);
+  body.append(block);
+}
+
+
+// 2 варіант - цикл в циклі без стилів в html (тільки в JS)
+for (const course of coursesArray) {
+    // Створюємо блок для кожного курсу
+    const courseBlock = document.createElement('div');
+    courseBlock.classList.add('course-block');
+
+    // Додаємо блок для назви курсу
+    const titleBlock = document.createElement('h3');
+    titleBlock.classList.add('title-block');
+    titleBlock.style.display = 'flex';               // Додаємо стиль flex
+    titleBlock.style.justifyContent = 'center';      // вирівнюємо по центру заголовок
+    titleBlock.style.color = '#8c6969'
+    titleBlock.textContent = `Title: ${course.title}`;
+    courseBlock.appendChild(titleBlock);
+
+    // Створюємо блок для тривалості
+    const durationBlock = document.createElement('div');
+    durationBlock.classList.add('duration-block');
+    durationBlock.style.display = 'flex'; // Додаємо стиль flex
+    durationBlock.style.justifyContent = 'center';
+    courseBlock.appendChild(durationBlock);
+
+    // Додаємо блок для тривалості у місяцях
+    const monthDurationBlock = document.createElement('div');
+    monthDurationBlock.textContent = `Month Duration: ${course.monthDuration}`;
+    durationBlock.appendChild(monthDurationBlock);
+
+    // Додаємо блок для тривалості у годинах
+    const hourDurationBlock = document.createElement('div');
+    hourDurationBlock.textContent = `Hour Duration: ${course.hourDuration}`;
+    hourDurationBlock.style.marginLeft = '80px';
+    durationBlock.appendChild(hourDurationBlock);
+
+    // Додаємо блок для модулів
+    const modulesBlock = document.createElement('div');
+    modulesBlock.classList.add('modules-block');
+    const modulesList = document.createElement('ul');
+    for (const module of course.modules) {
+        const moduleItem = document.createElement('li');
+        moduleItem.textContent = module;
+        modulesList.appendChild(moduleItem);
+    }
+    modulesBlock.appendChild(modulesList);
+    courseBlock.appendChild(modulesBlock);
+
+    // Додаємо блок курсу до сторінки
+    document.body.appendChild(courseBlock);
+}
