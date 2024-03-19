@@ -11,7 +11,7 @@
 const submitBtn = document.getElementById('submitBtn');
 
 // Додаємо обробник події click на кнопку
-submitBtn.addEventListener('click', function() {
+submitBtn.addEventListener('click', function () {
 
     // Отримуємо значення полів форми
     const name = document.getElementById('name').value;
@@ -40,16 +40,31 @@ submitBtn.addEventListener('click', function() {
 });
 
 
-
-
-
-
-
-
-
 // є сторінка, на якій є блок, в якому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки
 // буде додавати до неї +1
-// ==========================
+document.addEventListener('DOMContentLoaded', function () {
+    let numberCounter = document.getElementById('numCounter');
+    let currentValue = parseInt(numberCounter.innerText); // Отримуємо поточне значення, якщо воно є, і перетворюємо його в число
+    currentValue = isNaN(currentValue) ? 0 : currentValue; // Перевіряємо, чи отримали ми число; якщо ні, встановлюємо значення 0
+
+    // Додаємо +1 до поточного значення
+    currentValue += 1;
+
+    // Оновлюємо текст у блоку з новим значенням
+    numberCounter.innerText = currentValue;
+});
+// <body>
+//     <h1>Count: <i id="count"></i></h1>
+// <script>
+//     // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
+//     const count = localStorage.getItem('count') || 0;
+//     const element = document.getElementById('count');
+//     const newCount = (+count + 1).toString();
+//     element.innerText = newCount;
+//     localStorage.setItem('count', newCount);
+// </script>
+
+
 // Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessions зберігається інформація про дату та час відвідування сторінки. Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію
 // =========================
 // зробити масив на 100 об'єктів та дві кнопки prev next

@@ -34,3 +34,27 @@
     padding-left: 1vw;
     padding-right: 1vw;
 }
+
+/**************************************************** 2 task ********************************************/
+
+.counterContainer {
+    width: 15vw;
+    height: 15vw;
+    background-color: burlywood;
+    border: solid 2px darkolivegreen;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw;
+
+}
+
+
+
+
+
+
+
+
+
