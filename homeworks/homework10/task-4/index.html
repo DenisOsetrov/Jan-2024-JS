@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--    <style>-->
+    <!--        .wrapper {-->
+    <!--            width: 300px;-->
+    <!--            padding: 10px;-->
+    <!--        }-->
+    <!--        .item {-->
+    <!--            margin-top: 10px;-->
+    <!--            border: red 2px solid;-->
+    <!--        }-->
+    <!--    </style>-->
+    <!--</head>-->
+    <!--<body>-->
+    <!--<button id="prev"-->
+    <!--        disabled>prev-->
+    <!--</button>-->
+    <!--<button id="next">next</button>-->
+
+    <!--<div id="wrapper"></div>-->
+
+    <style>
+        body {
+            margin: 0;
+            background-color: burlywood;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .mainContainer {
+            width: 70vw;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+        .locations-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .item {
+            width: calc(35% - 10px); /* Половина доступного простору з відступом */
+            height: 3em;
+            padding: 10px;
+            border: 2px solid #4e86d9;
+            border-radius: 5px;
+            background-color: #efbfcf;
+        }
+
+        .buttonContainer {
+            width: 70vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        #prev, #next {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #prev:disabled, #next:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #prev:hover, #next:hover {
+            background-color: #0056b3;
+        }
+        h3 {
+            display: inline; /* Робимо h3 інлайновим елементом */
+            margin: 0; /* Відміняємо відступи */
+            padding: 0; /* Відміняємо відступи */
+            font-size: inherit; /* Наслідуємо розмір шрифту від батьківського елемента */
+        }
+    </style>
+</head>
+<body>
+
+<div class="mainContainer">
+    <h1>Завантаження по 10 об'єктів (пагінація)!</h1>
+<div class="buttonContainer">
+    <button id="prev" disabled>Prev</button>
+    <button id="next">Next</button>
+</div>
+
+<div class="locations-container" id="locationsContainer"></div>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+
+</html>
