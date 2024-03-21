@@ -1,0 +1,92 @@
+<!--- створити інпут який приймає вік людини та кнопку яка підтверджує дію.
+      При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18,
+      та повідомити про це  користувача-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 200px; /* Збільшення ширини інпута */
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <label for="ageInput">
+        <input type="number" id="ageInput" placeholder="Введіть ваш вік">
+    </label>
+
+    <button onclick="checkAge()">Перевірити вік</button>
+    <p id="message"></p>
+</div>
+
+<script>
+    function checkAge() {
+        // Отримуємо значення віку з поля введення
+        const age = parseInt(document.getElementById("ageInput").value);
+
+        // Перевіряємо, чи вік менше 18
+        if (age < 18) {
+            // Якщо вік менше 18, виводимо повідомлення
+            document.getElementById("message").innerText = "Ви не досягли 18 років!";
+        } else {
+            // Якщо вік більше або дорівнює 18, виводимо інше повідомлення
+            document.getElementById("message").innerText = "Вам 18! Можливо навіть більше!";
+        }
+    }
+</script>
+
+</body>
+</html>
