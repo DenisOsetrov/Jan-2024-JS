@@ -21,8 +21,9 @@ sessions.push({
 // Зберігаємо оновлений масив сесій у локальному сховищі
 localStorage.setItem('sessions', JSON.stringify(sessions));
 
+// це треба вішати на кнопку!!!
 // Очищаємо всі дані збережені в локальному сховищі. Усі збережені дані будуть втрачені.
-localStorage.clear();
+// localStorage.clear();
 
 
 
