@@ -1,0 +1,120 @@
+
+/* Загальні стилі для body */
+body {
+    background-color: rgba(222, 212, 241, 0.51);
+}
+
+/* Загальні стилі для вирівнювання тексту по центру */
+.h-center {
+    text-align: center;
+}
+
+/* стилізація кнопок */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.button-container button {
+    padding: 10px 0;
+    width: 40%;
+    font-size: 16px;
+    background-color: #634693;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box; /* Додано, щоб padding враховувався в ширині кнопки */
+}
+
+.button-container #prevButton:hover {
+    background-color: rgba(52, 133, 61, 0.6);
+}
+
+.button-container #nextButton:hover {
+    background-color: rgba(232, 40, 143, 0.56);
+}
+
+/* робимо кнопку неактивною і додаюмо логіку до js*/
+#prevButton:disabled, #nextButton:disabled {
+    background-color: #ccc; /* Змінюємо фон на сірий */
+    cursor: not-allowed; /* Змінюємо курсор на not-allowed */
+}
+
+/* Стилі для контейнера з рецептом */
+.recipe-container {
+    background-color: #f2f2f2;
+    border: 2px solid #999;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилі для заголовка рецепту */
+.recipe-header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+}
+
+/* Стилі для ID рецепту, назви та кількості калорій */
+.recipe-id, .recipe-name, .recipe-caloriesPerServing {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* Стилі для ID рецепту */
+.recipe-id {
+    color: #007bff;
+}
+
+/* Стилі для назви рецепту */
+.recipe-name {
+    color: #28a745;
+}
+
+/* Стилі для кількості калорій */
+.recipe-caloriesPerServing {
+    color: brown;
+}
+
+/* Стилі для вмісту рецепту */
+.recipe-details {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Стилі для зображення рецепту */
+.recipe-image img {
+    max-width: 250px;
+    border-radius: 10px;
+}
+
+/* Стилі для інструкцій та заголовка інструкцій */
+.instructions, .instructions-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Стилі для заголовка інструкцій */
+.instructions-header {
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+/* Стилі для списку інструкцій */
+.instructions ol li {
+    margin-bottom: 5px;
+}
