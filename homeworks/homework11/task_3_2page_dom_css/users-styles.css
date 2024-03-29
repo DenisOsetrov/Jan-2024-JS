@@ -7,6 +7,7 @@ header h2 {
     text-align: center;
     color: #3e577c;
 }
+
 header ul {
     color: #166e57;
     font-size: 20px;
@@ -28,17 +29,12 @@ header ul li {
     cursor: pointer;
     height: 6em;
     vertical-align: middle; /* Додаємо вирівнювання по вертикалі */
+    width: calc(20% - 20px); /* Відступ між кнопками 10px, тому ми віднімаємо 20px від 100% */
 }
 
 /* При наведенні курсору змінюємо колір фону кнопки */
 .user-button:hover {
     background-color: rgb(87, 120, 178);
-}
-
-/* Задаємо ширину для кнопок, щоб вони були однакової ширини */
-.user-button {
-    width: calc(20% - 20px); /* Відступ між кнопками 10px, тому ми віднімаємо 20px від 100% */
-    max-width: 200px; /* Максимальна ширина кнопки */
 }
 
 /* Медіа-запит для адаптивного відображення */
