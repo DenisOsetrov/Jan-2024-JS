@@ -1,0 +1,49 @@
+body {
+    background-color: #cfbfef;
+}
+
+/*Стилазація завдання в html*/
+header h2 {
+    text-align: center;
+    color: #3e577c;
+}
+header ul {
+    color: #166e57;
+    font-size: 20px;
+}
+
+header ul li {
+    margin-bottom: 5px;
+}
+
+/* Стилізація кнопок користувачів */
+.user-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: rgb(31, 78, 159);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 6em;
+    vertical-align: middle; /* Додаємо вирівнювання по вертикалі */
+}
+
+/* При наведенні курсору змінюємо колір фону кнопки */
+.user-button:hover {
+    background-color: rgb(87, 120, 178);
+}
+
+/* Задаємо ширину для кнопок, щоб вони були однакової ширини */
+.user-button {
+    width: calc(20% - 20px); /* Відступ між кнопками 10px, тому ми віднімаємо 20px від 100% */
+    max-width: 200px; /* Максимальна ширина кнопки */
+}
+
+/* Медіа-запит для адаптивного відображення */
+@media (max-width: 768px) {
+    .user-button {
+        width: calc(50% - 20px);
+    }
+}

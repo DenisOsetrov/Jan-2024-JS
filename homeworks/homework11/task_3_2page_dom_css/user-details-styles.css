@@ -1,0 +1,46 @@
+body {
+    background-color: #cfbfef;
+}
+
+/* Стилізація контейнера з детальною інформацією про користувача */
+#user-details-container {
+    width: 65vw;
+    margin-top: 8vw;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2vw;
+    background-color: rgba(175, 174, 174, 0.79);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилізація заголовка */
+#user-details-container h2 {
+    text-align: center;
+    color: #3e577c;
+}
+
+/* Стилізація списку деталей користувача */
+#user-details-container p {
+    color: #166e57;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* Стилізація кнопки "Назад" */
+#back-button {
+    display: block;
+    width: 69vw;
+    margin: 20px auto; /* Збільшив відстань між контейнером і кнопкою */
+    padding: 20px;
+    background-color: rgba(16, 53, 110, 0.55);
+    font-size: 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#back-button:hover {
+    background-color: #3b78d2;
+}
