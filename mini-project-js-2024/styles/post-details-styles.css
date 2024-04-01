@@ -1,0 +1,83 @@
+/*import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+body {
+    margin: 10px;
+    font-family: Arial, sans-serif;
+    background: url("../images/page-3.jpg") fixed;
+    background-size: cover;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    font-family: "Oswald", sans-serif;
+    font-weight: normal;
+    font-size: 3vw;
+}
+h2 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.p-post-details-container {
+margin: 5px;
+}
+
+.p-post-details-container::before {
+    content: "♥ ";
+    color: red;
+}
+
+/*верхній блок*/
+.post-details-container {
+    margin: auto 90px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: rgb(100, 119, 152);
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+li {
+    flex: 1 0 22%; /* 22% - це початкова ширина, залишаємо її незмінною */
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid white;
+    background-color: rgba(36, 58, 91, 0.44);
+    margin: 10px;
+}
+
+li p {
+    margin: 5px 5px;
+
+}
+
+button {
+    background-color: rgba(133, 138, 141, 0.68);
+    border: none;
+    color: #ffffff;
+    padding: 3px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6a86af;
+}

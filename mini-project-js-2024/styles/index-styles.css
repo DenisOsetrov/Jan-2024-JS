@@ -1,0 +1,90 @@
+/*import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+body {
+    height: 100vh; /* Займаємо всю висоту сторінки */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('../images/page-1.jpg') fixed;
+    background-size: cover; /* Зробити фонове зображення рівномірно розміщеним */
+    color: white;
+}
+
+header{
+    height: auto;
+    text-align: center;
+    margin: 0;
+    font-size: 5vw;
+    color: #cfbfef;
+    font-family: "Oswald", sans-serif;
+}
+
+.wrapper {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#left-column, #right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 40vw;
+}
+
+#left-column .user-block, #right-column .user-block {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba(26, 25, 25, 0.62);
+    border: 1px solid #ccc;
+    padding: 0.5vw;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 0.5vw;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.user-id, .user-name {
+    font-weight: bold;
+    font-size: 1.5vw;
+    margin: 0;
+}
+
+button {
+    margin: 0 auto;
+    display: block;
+    width: 90%;
+    background-color: rgba(78, 134, 217, 0.62);
+    border: none;
+    color: white;
+    padding: 0.3vw;
+    text-decoration: none;
+    font-size: 1.3vw;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+button:hover {
+    background-color: rgb(93, 151, 238);
+}
+
+footer h5{
+    width: 65%;
+    margin: 1vw auto;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    background-color: rgba(19, 45, 94, 0.53);
+    border-radius: 20px;
+    text-align: center;
+}

@@ -1,8 +1,4 @@
-<!--В index.html-->
-<!--1 отримати масив об'єктів з endpoint`а https://jsonplaceholder.typicode.com/users-->
-<!--2 Вивести id,name всіх user в index.html. Окремий блок для кожного user.-->
-<!--3 Додати кожному блоку кнопку/посилання , при кліку на яку відбувається перехід
-на сторінку user-details.html, котра має детальну інфорацію про об'єкт на який клікнули-->
+<!--Запуспаємо index.html для запуску проєкту!-->
 
 <!doctype html>
 <html lang="en">
@@ -11,163 +7,21 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: url("image/asphalt_texture409.jpg");
-            -moz-background-size: 100%;
-            -webkit-background-size: 100%;
-            -o-background-size: 100%;
-            background-size: 100%;
-            z-index: -1;
-            color: white;
-        }
-
-        .wrapper {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .title {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .title h1 {
-            font-size: 36px;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .user-collections {
-            display: flex;
-            justify-content: space-between;
-
-        }
-
-        .user-blocks {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-
-        }
-
-        .user-block {
-            background-color: rgba(26, 25, 25, 0.62);
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-left: 70px;
-            margin-right: 70px;
-        }
-
-        .user-block p {
-            margin: 0;
-        }
-
-        .user-id {
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        .user-info {
-            display: flex;
-            justify-content: space-evenly;
-        }
-        .user-info p {
-            margin: 0;
-        }
-        button {
-            margin: auto;
-            display: block;
-            /*width: 90%;*/
-            background-color: rgba(150, 148, 148, 0.7);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
-        button:hover {
-            background-color:#212529;
-        }
-        .user-name {
-            margin-top: 0;
-        }
-        h4 {
-            width: 43%;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: rgba(26, 25, 25, 0.62);
-            border-radius: 20px;
-            text-align: center;
-        }
-    </style>
+    <title>USERS COLLECTION</title>
+    <link rel="stylesheet" href="styles/index-styles.css">
 </head>
 <body>
+<header>USERS COLLECTION</header>
 <div class="wrapper">
-    <div class="title">
-        <h1>USER COLLECTIONS</h1>
-    </div>
-    <div class="user-collections">
-        <div id="left-column" class="user-blocks"></div>
-        <div id="right-column" class="user-blocks"></div>
-    </div>
-    <div><h4>Developer Denys Osetrov: website development, project support, consulting.</h4></div>
+    <div id="left-column"></div>
+    <div id="right-column"></div>
 </div>
-<script>
-    let url = new URL('https://jsonplaceholder.typicode.com/users');
-    fetch(url)
-        .then(response => response.json())
-        .then(users => {
-            const leftColumn = document.getElementById('left-column');
-            const rightColumn = document.getElementById('right-column');
-            //У даному випадку, forEach() викликає функцію з двома параметрами: user та index. user - це поточний елемент масиву, який обробляється, а index - індекс цього елементу в масиві.
-            users.forEach((user, index) => {
-                const userBlock = document.createElement('div');
-                userBlock.classList.add('user-block');
+<footer>
+    <h5>Developer Denys Osetrov: website development, project support, consulting.</h5>
+</footer>
 
-                const userInfo = document.createElement('div'); // додано новий div для ID та Name
-                userInfo.classList.add('user-info'); // задано клас для нового div
-
-                const id = document.createElement('p');
-                id.classList.add('user-id');
-                id.textContent = `ID: ${user.id}`;
-
-                const name = document.createElement('h3');
-                name.classList.add('user-name')
-                name.textContent = `Name: ${user.name}`;
-
-                const detailsButton = document.createElement('button');
-                detailsButton.textContent = 'Details';
-                detailsButton.onclick = () => window.location.href = `user-details.html?data=` + JSON.stringify(user);
-
-                userInfo.appendChild(id); // поміщаємо ID та Name в новий div
-                userInfo.appendChild(name);
-                userBlock.appendChild(userInfo); // додано новий div в блок користувача
-                userBlock.appendChild(detailsButton);
-
-                // Ця умова перевіряє, чи є кількість користувачів непарною і чи є поточний блок останнім у масиві. Якщо так, то блок додається до лівого стовпця. Якщо ні, то блок додається до стовпця, який відповідає парності порядкового номера блоку користувача.
-                if (users.length % 2 !== 0 && index === users.length - 1) {
-                    leftColumn.appendChild(userBlock);
-                } else if (index % 2 === 0) {
-                    leftColumn.appendChild(userBlock);
-                } else {
-                    rightColumn.appendChild(userBlock);
-                }
-
-            });
-        })
-        .catch(error => console.error(error));
+<script src="scripts/users-scripts.js">
 </script>
+
 </body>
 </html>

@@ -1,0 +1,113 @@
+/*import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+body {
+    margin: 10px;
+    font-family: Arial, sans-serif;
+    background: url("../images/page-2.jpg") fixed;
+    background-size: cover;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    text-align: center;
+    color: #c4f6b4;
+    margin: 0;
+    font-family: "Oswald", sans-serif;
+    font-weight: normal;
+    font-size: 4vw;
+}
+
+#user-details-container {
+    margin: 10px;
+    background-color: rgba(26, 25, 25, 0.62);
+    border: 2px white solid;
+    text-align: center;
+}
+
+#user-details-container p {
+    margin: 7px;
+}
+
+#user-posts-button {
+    width: 50%;
+    margin: 40px auto;
+    display: block;
+    background-color: rgba(37, 103, 103, 0.67);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+#user-posts-button:hover {
+    background-color: rgba(7, 70, 70, 0.81);
+}
+
+#user-posts-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#user-posts-list li {
+    margin-bottom: 30px;
+    display: flex;
+    width: 18%;
+    background-color: rgba(205, 169, 250, 0.72);
+    border: 2px #2a4670 solid;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#user-posts-list li:hover {
+    background-color: rgb(123, 227, 200);
+    border: 2px rgba(241, 55, 55, 0.61) solid;
+}
+
+#user-posts-list li a {
+    text-decoration: none;
+    white-space: nowrap; /* Забороняємо перенесення тексту на новий рядок */
+    overflow: hidden; /* Ховаємо зайвий текст */
+    text-overflow: ellipsis; /* Додаємо крапки у кінці обрізаного тексту */
+    display: block;
+    padding: 10px;
+}
+
+#back-button, #clear-posts-button{
+    background-color: rgb(9, 133, 100);
+    border: none;
+    color: #ffffff;
+    padding: 3px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+}
+
+#back-button:hover, #clear-posts-button:hover {
+    background-color: rgba(34, 82, 69, 0.72);
+}
